@@ -1,0 +1,40 @@
+{% extends "etudiant_register/base.html" %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<form action="" method="post" autocomplete="off">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-md-4">
+            {{form.name|as_crispy_field}}
+        </div>
+        <div class="col-md-4">
+            {{form.firstname|as_crispy_field}}
+        </div>
+        <div class="col-md-4">
+            {{form.mobile|as_crispy_field}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            {{form.email|as_crispy_field}}
+        </div>
+        <div class="col-md-4">
+            {{form.evenement|as_crispy_field}}
+        </div>
+    </div>
+</br>
+    <div class="row">
+        <div class="col-md-8">
+            <button type="submit" class="btn btn-success btn-block btn-lg"><i class="fas fa-database"></i>
+                Enregistrer</button>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'etudiant_list' %}" class="btn btn-secondary btn-block btn-lg">
+                <i class="fas fa-stream"></i> liste
+            </a>
+        </div>
+    </div>
+</form>
+{% endblock content %}
